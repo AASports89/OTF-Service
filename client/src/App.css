@@ -1,3 +1,27 @@
+.App {
+  text-align: center;
+  background: transparent;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
 .container-fluid {
   text-align: center;
 }
@@ -19,24 +43,57 @@
   margin-top: 30px;
 }
 
-#btn-home {
+#mini-mart-logo {
   border: none;
   border-radius: 0.5em;
-  background-color: transparent;
+  background: transparent;
   cursor: pointer;
+  margin-right: 5%;
 }
 
-#shell-logo:hover {
+#home-btn {
+  margin-right: 1%;
+}
+
+#home-btn:hover {
+  color: red;
+  transition: all 0.3s ease-in-out;
+}
+
+#admin-btn {
+  color: whitesmoke;
+}
+
+#admin-btn:hover {
+  color: red;
+  transition: all 0.3s ease-in-out;
+}
+
+#inv-btn {
+  margin-left: 1%;
+  color: whitesmoke;
+}
+
+#inv-btn:hover {
+  color: red;
+  transition: all 0.3s ease-in-out;
+}
+
+#mini-mart-logo:hover {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  width: 305%;
   background-color: #abd0f3;
-  padding: 15%;
   border-radius: 0.5em;
+  width: 52px;
+  height: 52px;
+  padding: 2%;
 }
 
-#shell-logo {
-  width: 300%;
+#home-icon:hover {
+  border-radius: 0.5em;
+  color: red;
+  font-size: 25pt;
+  transition: all 0.3s ease-in-out;
 }
 
 #close-btn {
@@ -61,16 +118,9 @@
   border-radius: 1em;
 }
 
-#inputName {
-  margin-bottom: 5%;
-}
-
-#inputEmail {
-  margin-bottom: 5%;
-}
-
-#inputPassword {
-  margin-bottom: 5%;
+#name_icon {
+  color: rgb(145, 226, 255);
+  font-size: 20pt;
 }
 
 #error {
@@ -104,33 +154,16 @@
 
 #header {
   font-size: 175%;
-  border-radius: 0.5em;
+  border-bottom: grey 2px solid;
+  background-color: transparent;
 }
 
 .card {
   border: none;
 }
 
-#logo {
-  width: 10%;
-}
-
-#banner {
-  width: 50%;
-  background: transparent;
-  justify-content: center;
-}
-
 #input-log {
   margin-bottom: 5%;
-}
-
-#login_icon {
-  width: 15%;
-}
-
-#logout_icon {
-  width: 15%;
 }
 
 #logout-btn:hover {
@@ -154,8 +187,6 @@
 #btn-close {
   font-size: 200%;
   font-weight: bold;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: rgb(113, 113, 113);
   border: none;
   margin-top: -2.5%;
 }
@@ -163,18 +194,25 @@
 #btn-close:hover {
 cursor: pointer;
 transition: all 0.3s ease-in-out;
-font-size: 210%;
 -webkit-background-clip: text;
 -webkit-text-fill-color: #D22222;
 }
 
 #exampleModalLabel {
   width: 200%;
+  text-align: center;
+  font-weight: bold;
 }
 
-#login_modal {
-  border: solid 1px black;
-  border-radius: 0.5em;
+#login-modal {
+  border: solid 0.5px black;
+  border-radius: 1em;
+  margin-bottom: 2%;
+  margin-top: 5%;
+}
+
+#login-pw {
+  margin-bottom: 5%;
 }
 
 #un_label {
@@ -183,7 +221,7 @@ font-size: 210%;
 
 #un_icon {
   color: rgb(189, 194, 200);
-  font-size: 30pt;
+  font-size: 20pt;
 }
 
 #pw_label {
@@ -192,22 +230,47 @@ font-size: 210%;
 
 #pw_icon {
   color: rgb(189, 194, 200);
-  font-size: 30pt;
+  font-size: 20pt;
 }
 
 #driver_icon {
   color: rgb(189, 194, 200);
-  font-size: 30pt;
+  font-size: 20pt;
+}
+
+#fuel_icon {
+  color: chocolate;
+  font-size: 20pt;
 }
 
 #fill_icon {
   color: #D22222;
-  font-size: 30pt;
+  font-size: 20pt;
 }
 
 #cost_icon {
   color:#017713;
-  font-size: 30pt;
+  font-size: 20pt;
+}
+
+#id_icon {
+  color: chocolate;
+  font-size: 20pt;
+}
+
+#tag_icon {
+  color: #D22222;
+  font-size: 20pt;
+}
+
+#quantity_icon {
+  color:#017713;
+  font-size: 20pt;
+}
+
+#costs_icon {
+  color: yellow;
+  font-size: 20pt;
 }
 
 #login-btn {
@@ -225,9 +288,7 @@ font-size: 210%;
   color:rgb(252, 254, 254);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  font-size: 105%;
   background-color: #abd0f3;
-  padding: 1%;
   border-radius: 0.5em;
 }
 
@@ -260,7 +321,6 @@ font-size: 210%;
   color: #87a2ae;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  font-size: 105%;
 }
 
 #signup {
@@ -277,7 +337,6 @@ font-size: 210%;
   color: #87a2ae;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  font-size: 105%;
 }
 
 #footer-card {
@@ -337,18 +396,20 @@ font-size: 210%;
   width: 10%;
 }
 
-#nav {
-  width: 75%;
-}
-
 #navbar {
   background: transparent;
-  border-radius: 0.5em;
+  border: black solid 1px;
+  border-radius: 0.25em;
+  margin-top: 2%;
+  width: auto;
+}
+
+#btn-home {
+  background: transparent;
 }
 
 #nav-btns {
   background: transparent;
-  width: 200%;
 }
 
 #login-un {
@@ -365,14 +426,8 @@ font-size: 210%;
   color:#017713;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  font-size: 105%;
   background: transparent;
   border: solid #017713;
-}
-
-#exampleModalLabel {
-  text-align: center;
-  font-weight: bold;
 }
 
 #footer-bold {
@@ -405,7 +460,6 @@ font-size: 210%;
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
-
   background-color: white;
   display: none;
   overflow: hidden;
@@ -414,21 +468,6 @@ font-size: 210%;
 @media only screen and (max-width: 768px) {
   
   #home {
-    font-size: 50%;
-    margin-left: 10%;
-  }
-  
-  #resources{
-    font-size: 50%;
-    margin-left: 10%;
-  }
-
-  #vault {
-    font-size: 50%;
-    margin-left: 10%;
-  }
-
-  #testimonials {
     font-size: 50%;
     margin-left: 10%;
   }
@@ -472,48 +511,12 @@ font-size: 210%;
     height: 300px;
     margin-bottom: 40%;
   }
+
   .accordion {
     background-color: transparent;
   }
 
   #footer-bold{
     font-size: 70%;
-  }
-
-  #royal-icon {
-    width: 12.5%;
-  }
-
-  #purpose_title {
-    font-size: 85%;
-  }
-
-  #tips_title {
-    font-size: 85%;
-  }
-
-  #vault_title {
-    font-size: 85%;
-  }
-
-  #purpose_text {
-    font-size: 65%;
-  }
-
-  #subscribe{
-    font-size: 50%;
-  }
-
-  #tips_text {
-    font-size: 65%;
-  }
-
-  #vault_text {
-    font-size: 65%;
-  }
-
-  #count_btn {
-    font-size: 50%;
-    margin-top: 10%;
   }
 }

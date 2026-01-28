@@ -1,25 +1,31 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Container from 'react-bootstrap/esm/Container.js';
-import Home from './pages/Home.js';
-import Login from './pages/Login.js';
-import Navbar from './components/Navbar.js';
-import "./App.css";
-// import { ToastContainer} from 'react-toastify';
+import Landing from "./components/Landing.js";
+import Profile from "./components/Profile.js";
+import Login from "./components/Login.js";
+import Register from "./components/Register.js";
+import DriverLog from "./components/DriverLog.js";
+import Inventory from "./components/Inventory.js";
+import './App.css';
 
-const App = () => {
+function App() {
   return (
-    <Container>
-      {/* <ToastContainer/> */}
-        <header id="navbar" className='navbar navbar-expand-lg navbar-light bg-light justify-content-center'>
-          <Navbar />
-        </header>
-          <Routes>
-            <Route  path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-    </Container>
-  )
-}
+      <Router>
+        <div className="App">
+          <Landing />
+          <Container>
+            <Routes>
+              <Route path="/register" component={Register} />
+              <Route path="/login" component={Login} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/driverLog" component={DriverLog} />
+              <Route path="/inventory" component={Inventory} />
+            </Routes>
+          </Container>
+        </div>
+      </Router>
+    );
+  }
 
-export default App
+export default App;

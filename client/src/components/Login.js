@@ -1,23 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-// import Aos from "aos";
-import nav_logo from '../images/nav_logo.svg';
-// import Login from './Login.js';
 import { login } from "./UserFunctions.js";
 
-  //   useEffect(() => {
-	// 	Aos.init({duration:2000});
-	// 	window.addEventListener("click", () => {
-	// 		var navBar = document.getElementById("navbar");
-	// 		var domRect = navBar.getBoundingClientRect();
-
-	// 		if (domRect.y <= -domRect.height) {
-	// 			navBar.classList.add("fade-in-nav");
-	// 		}
-	// 	});
-	// }, [])
-
-class Navbar extends Component {
+class Login extends Component {
 
   constructor() {
     super();
@@ -52,34 +36,6 @@ class Navbar extends Component {
 render() 
 {
 return(
-    <>
-    <nav id="navbar" className="navbar navbar-expand-lg navbar-light">
-      <nav className="navbar navbar-expand-lg navbar-light">
-          <a id="btn-home" className="navbar-brand" to='http://192.168.1.8:3000/' style={{cursor: 'pointer'}}>
-              <img id="mini-mart-logo" src={nav_logo} class="d-inline-block" />
-                Bloomington Mini Mart™ Portal
-          </a>
-      </nav>
-        {login ? (
-            <>
-          <Link to="/" id="home-btn" type="button" className="btn btn-light">
-            <i className="fa-solid fa-house-circle-check"></i> Home
-          </Link>
-          <Link to="/login" type="button" id="admin-btn" className="btn btn-primary">
-            <i className="fa-brands fa-black-tie"></i> Admin Login
-          </Link>
-            </>
-          ) : (
-            <>
-          <Link to="/driverLog" id="inv-btn" type="button" className="btn btn-success">
-            <i className="fa-regular fa-hard-drive"></i> Driver Log
-          </Link>
-          <Link to="/inventory" id="inv-btn" type="button" className="btn btn-secondary">
-            <i className="fa-solid fa-warehouse"></i> Inventory
-          </Link>
-           </>
-          )}
-    </nav>
           <div className="modal-dialog">
 			      <div className="modal-content">
 				      <div className="modal-header">
@@ -107,7 +63,6 @@ return(
             </div>
           </div>
         </div>
-  </>
 )}};
 
-export default Navbar;
+export default Login;
