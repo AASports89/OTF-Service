@@ -19,7 +19,6 @@ Inventories.post("/inventory", (req, res) => {
       name: req.body.name
     }
   })
-    //TODO bcrypt
     .then(item => {
       if (!item) {
         Inventory.create(inventoryData)

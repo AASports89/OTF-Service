@@ -9,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./images/shell_bg.svg');
-  background-size: auto;
+  background-size: contain;
 }
 
 code {

@@ -1,38 +1,25 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
+import { values } from "sequelize/lib/operators.js";
 
-class Profile extends Component {
-  constructor() {
-    super();
-    this.state = {
-      first_name: "",
-      last_name: "",
-      username: "",
-      errors: {}
-    };
-  }
-
-  componentDidMount() {
+function Profile() {
+  
     const token = localStorage.usertoken;
     const decoded = jwt_decode(token);
-    this.setState({
-      first_name: decoded.first_name,
-      last_name: decoded.last_name,
-      username: decoded.username
+    useEffect({
+      USERNAME: decoded.USERNAME,
+      FIRST_NAME: decoded.FIRST_NAME,
+      LAST_NAME: decoded.LAST_NAME
     });
-  }
 
-  render() {
-    return (
+return (
       <div className="container">
         <div className="jumbotron mt-5">
           <div className="col-sm-8 mx-auto">
-            <h1 className="text-center"> {this.state.username}'s Dashboard</h1>
+            <h1 className="text-center"> {values.valueOf(USERNAME)}'s Dashboard</h1>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    )};
 
 export default Profile;

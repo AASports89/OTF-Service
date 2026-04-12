@@ -7,24 +7,23 @@ DriverLogs.use(cors());
 DriverLogs.post("/driverLog", (req, res) => {
   const today = new Date();
   const driverLogData = {
-    driverID: req.body.driverID,
-    fuelType: req.body.fuelType,
-    totalFilled: req.body.totalFilled,
-    totalCost: req.body.totalCost,
+    driver_id: req.body.driver_id,
+    fuel_type: req.body.fuel_type,
+    total_filled: req.body.total_filled,
+    total_cost: req.body.total_cost,
     created: today
   };
 
   DriverLog.findOne({
     where: {
-      driverID: req.body.driverID
+      driver_id: req.body.driver_id
     }
   })
-    //TODO bcrypt
     .then(driverLog => {
       if (!driverLog) {
         DriverLog.create(driverLogData)
             .then(driverLog => {
-              res.json({ status: driverLog.driverID + "successfully logged ✅" });
+              res.json({ status: driverLog.driver_id + "successfully logged ✅" });
             })
             .catch(err => {
               res.send("error: " + err);
@@ -38,10 +37,10 @@ DriverLogs.post("/driverLog", (req, res) => {
     });
 });
 
-DriverLogs.post("/driverLog", (req, res) => {
+DriverLogs.post("/driverLogs", (req, res) => {
   DriverLog.findOne({
     where: {
-      driverID: req.body.driverID
+      driver_id: req.body.driver_id
     }
   })
     .then(driverLog => {
@@ -56,7 +55,7 @@ DriverLogs.post("/driverLog", (req, res) => {
     });
 });
 
-DriverLogs.get("/driverLog", (req, res) => {
+DriverLogs.get("/driverLogs", (req, res) => {
 
   DriverLog.findOne({
     where: {

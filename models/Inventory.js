@@ -2,8 +2,7 @@ import Sequelize from 'sequelize';
 import db from '../database/db.js';
 
 const Inventory = db.define(
-
-  "item",
+  "inventory",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -17,9 +16,9 @@ const Inventory = db.define(
       type: Sequelize.INTEGER
     },
     cost: {
-      type: Sequelize.INTEGER
+      type: Sequelize.DECIMAL
     },
-    created: {
+    create_time: {
       type: Sequelize.DATE,
       defaultValue: Sequelize.NOW
     }

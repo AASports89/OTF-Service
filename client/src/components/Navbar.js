@@ -1,113 +1,95 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-// import Aos from "aos";
-import nav_logo from '../images/nav_logo.svg';
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import axios from 'axios';
+// import nav_logo from '../images/nav_logo.svg';
 // import Login from './Login.js';
-import { login } from "./UserFunctions.js";
+// // import { login, register } from './UserFunctions.js';
 
-  //   useEffect(() => {
-	// 	Aos.init({duration:2000});
-	// 	window.addEventListener("click", () => {
-	// 		var navBar = document.getElementById("navbar");
-	// 		var domRect = navBar.getBoundingClientRect();
+// function Navbar() {
 
-	// 		if (domRect.y <= -domRect.height) {
-	// 			navBar.classList.add("fade-in-nav");
-	// 		}
-	// 	});
-	// }, [])
+//     const logout = () => {
+//       axios.get('http://localhost:3000/auth/logout', {
+//         headers: { 'Content-Type': 'application/json' },
+//             withCredentials: true,
+//             method: 'GET',
+//         }).then((response) => {
+//             console.log(response);
+//             console.log(response.data.session);
+//             return response;
+//         });
+//         localStorage.clear();
+//         window.location.reload();
+//     }
 
-class Navbar extends Component {
+//   const login = user => {
+//   return axios
+//     .post("users/login", {
+//       USERNAME: user.USERNAME,
+//       PASSWORD: user.PASSWORD
+//     })
+//     .then(response => {
+//       localStorage.setItem("usertoken", response.data);
+//       return response.data;
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// };
 
-  constructor() {
-    super();
-    this.state = {
-      username: "",
-      password: "",
-      errors: {}
-    };
+// const register = newUser => {
+//   return axios
+//     .post("users/register", {
+//       USERNAME: newUser.USERNAME,
+//       PASSWORD: newUser.PASSWORD,
+//       FIRST_NAME: newUser.FIRST_NAME,
+//       LAST_NAME: newUser.LAST_NAME
+//     })
+//     .then(response => {
+//       console.log("Registered");
+//     });
+// };
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+//     //   <nav>
+//     //   <ul className="navbar-nav">
+//     //     <li className="nav-item">
+//     //       <Link to="/driverLogs" id="inv-btn" type="button" className="btn btn-success">
+//     //         <i className="fa-regular fa-hard-drive"></i> Driver Log
+//     //       </Link>
+//     //       <Link to="/inventories" id="inv-btn" type="button" className="btn btn-secondary">
+//     //         <i className="fa-solid fa-warehouse"></i> Inventory
+//     //       </Link>
+//     //     </li>
+//     //     <li className="nav-item">
+//     //       <a id="logout" type="button" onClick={logout} className="btn btn-primary">
+//     //        <i className="fa-solid fa-lock fa-lg"></i> Logout
+//     //       </a>
+//     //     </li>
+//     //   </ul>
+//     // {localStorage.usertoken ? login : register}
+//   //   </nav>
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-  onSubmit(e) {
-    e.preventDefault();
+// return (
+//     <nav className="navbar navbar-expand-lg navbar-light">
+//           <a id="btn-home" className="navbar-brand" to='http://192.168.1.12:3000/' style={{cursor: 'pointer'}}>
+//               <img id="mini-mart-logo" src={nav_logo} class="d-inline-block" />
+//                 On The Fly Service™ Portal
+//           </a>
+//           <Link to={'/login'} type="button" id="admin-btn" className="btn btn-primary">
+//             <i className="fa-solid fa-user"></i> Login
+//           </Link>
+//           <Link to="/register" type="button" id="register" className="btn btn-primary">
+//             <i className="fa-solid fa-user-plus fa-lg"></i> Register
+//           </Link>
+//           <Link to="/driverLog" type="button" id="log-btn" className="btn btn-success">
+//             <i className="fa-regular fa-hard-drive"></i> Service Log
+//           </Link>
+//           <Link to="/inventory" type="button" id="inv-btn" className="btn btn-secondary">
+//             <i className="fa-solid fa-warehouse"></i> Inventory
+//           </Link>
+//           <a id="logout" type="button" onClick={logout} className="btn btn-primary">
+//             <i className="fa-solid fa-lock fa-lg"></i> Logout
+//           </a>
+//   </nav>
+// )};
 
-    const user = {
-      username: this.state.username,
-      password: this.state.password
-    };
-
-    login(user).then(res => {
-      if (res) {
-        this.props.history.push(`/profile`);
-      }
-    });
-  }
-
-render() 
-{
-return(
-    <>
-    <nav id="navbar" className="navbar navbar-expand-lg navbar-light">
-      <nav className="navbar navbar-expand-lg navbar-light">
-          <a id="btn-home" className="navbar-brand" to='http://192.168.1.8:3000/' style={{cursor: 'pointer'}}>
-              <img id="mini-mart-logo" src={nav_logo} class="d-inline-block" />
-                Bloomington Mini Mart™ Portal
-          </a>
-      </nav>
-        {login ? (
-            <>
-          <Link to="/" id="home-btn" type="button" className="btn btn-light">
-            <i className="fa-solid fa-house-circle-check"></i> Home
-          </Link>
-          <Link to="/login" type="button" id="admin-btn" className="btn btn-primary">
-            <i className="fa-brands fa-black-tie"></i> Admin Login
-          </Link>
-            </>
-          ) : (
-            <>
-          <Link to="/driverLog" id="inv-btn" type="button" className="btn btn-success">
-            <i className="fa-regular fa-hard-drive"></i> Driver Log
-          </Link>
-          <Link to="/inventory" id="inv-btn" type="button" className="btn btn-secondary">
-            <i className="fa-solid fa-warehouse"></i> Inventory
-          </Link>
-           </>
-          )}
-    </nav>
-          <div className="modal-dialog">
-			      <div className="modal-content">
-				      <div className="modal-header">
-					      <h5 className="modal-title" id="exampleModalLabel"><i className="fa-brands fa-black-tie"></i> <i>Admin. Login</i></h5>
-				      </div>
-				    <div className="modal-body" id="login-modal">
-					    <form className="content-containers container text-center mt-5" onSubmit={this.onSubmit} id="login">
-                <div className="input-group" id="login-un">
-                  <label id="un_label" htmlFor="username"><i id="un_icon" className="fas fa-user"></i></label>
-								  <input value={this.state.username} onChange={this.onChange} id="username" className="form-control" placeholder="Username" name="username" type="text" required/>
-						    </div>
-                <div className="input-group" id="login-pw">
-                  <label id="pw_label" htmlFor="password"><i id="pw_icon" className="fas fa-lock"></i></label>
-								  <input value={this.state.password} onChange={this.onChange} id="password" className="form-control" placeholder="******" name="password" type="password" required/>
-						    </div>
-						    <div className="modal-footer">
-								  <button type="submit" id="pw_login" className="btn btn-primary" style={{cursor: 'pointer'}}>
-									  Login
-								  </button>
-                  <button id="close-btn" className="btn btn-secondary" type="button" data-bs-dismiss="modal">
-                    Close
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-  </>
-)}};
-
-export default Navbar;
+// export default Navbar;

@@ -5,16 +5,16 @@ import Users from './routes/Users.js';
 import DriverLogs from './routes/DriverLogs.js';
 import Inventories from './routes/Inventories.js';
 
-var app = express();
-var port = process.env.PORT || 3001;
+const app = express();
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/users", Users);
-app.use("/driverLog", DriverLogs)
-app.use("/inventory", Inventories)
+app.use("/driverLogs", DriverLogs)
+app.use("/inventories", Inventories)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));

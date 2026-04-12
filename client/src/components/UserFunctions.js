@@ -2,11 +2,11 @@ import axios from "axios";
 
 const register = newUser => {
   return axios
-    .post("users/register", {
-      first_name: newUser.first_name,
-      last_name: newUser.last_name,
-      username: newUser.username,
-      password: newUser.password
+    .post("http://192.168.1.8:3000/users/register", {
+      USERNAME: newUser.USERNAME,
+      PASSWORD: newUser.PASSWORD,
+      FIRST_NAME: newUser.FIRST_NAME,
+      LAST_NAME: newUser.LAST_NAME
     })
     .then(response => {
       console.log("Registered");
@@ -15,9 +15,9 @@ const register = newUser => {
 
 const login = user => {
   return axios
-    .post("users/login", {
-      username: user.username,
-      password: user.password
+    .post("http://192.168.1.8:3000/users/login", {
+      USERNAME: user.USERNAME,
+      PASSWORD: user.PASSWORD
     })
     .then(response => {
       localStorage.setItem("usertoken", response.data);
@@ -29,18 +29,17 @@ const login = user => {
 };
 
 const logOut = user => {
-    e.preventDefault();
+    console.error('Error');
     localStorage.removeItem("usertoken");
-    this.props.history.push(`/`);
   }
 
 const driveLog = driverLogs => {
   return axios
-    .post("/driverLog", {
-      driverID: driverLogs.driverID,
-      fuelType: driverLogs.fuelType,
-      totalFilled: driverLogs.totalFilled,
-      totalCost: driverLogs.totalCost
+    .post("http://192.168.1.8:3000/auth/driverLogs", {
+      DRIVER_ID: driverLogs.DRIVER_ID,
+      FUEL_TYPE: driverLogs.FUEL_TYPE,
+      TOTAL_FILLED: driverLogs.TOTAL_FILLED,
+      TOTAL_COST: driverLogs.TOTAL_COST
     })
     .catch(err => {
       console.log(err);
@@ -49,11 +48,11 @@ const driveLog = driverLogs => {
 
 const itemInventory = item => {
   return axios
-    .post("/inventory", {
-      id: item.id,
-      name: item.name,
-      quantity: item.quantity,
-      cost: item.cost
+    .post("http://192.168.1.8:3000/auth/inventories", {
+      ID: item.ID,
+      NAME: item.NAME,
+      QUANTITY: item.QUANTITY,
+      COST: item.COST
     })
     .catch(err => {
       console.log(err);

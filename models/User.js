@@ -4,16 +4,10 @@ import db from '../database/db.js';
 const User = db.define(
   "user",
   {
-    id: {
+    user_id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true
-    },
-    first_name: {
-      type: Sequelize.STRING
-    },
-    last_name: {
-      type: Sequelize.STRING
     },
     username: {
       type: Sequelize.STRING
@@ -21,7 +15,13 @@ const User = db.define(
     password: {
       type: Sequelize.STRING
     },
-    created: {
+    first_name: {
+      type: Sequelize.STRING
+    },
+    last_name: {
+      type: Sequelize.STRING
+    },
+    create_time: {
       type: Sequelize.DATE,
       defaultValue: Sequelize.NOW
     }

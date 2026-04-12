@@ -9,19 +9,19 @@ const DriverLog = db.define(
       primaryKey: true,
       autoIncrement: true
     },
-    driverID: {
+    driver_id: {
       type: Sequelize.STRING
     },
-    fuelType: {
+    fuel_type: {
       type: Sequelize.STRING
     },
-    totalFilled: {
+    total_filled: {
       type: Sequelize.INTEGER
     },
-    totalCost: {
-      type: Sequelize.INTEGER
+    total_cost: {
+      type: Sequelize.DECIMAL
     },
-    created: {
+    create_time: {
       type: Sequelize.DATE,
       defaultValue: Sequelize.NOW
     }

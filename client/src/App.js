@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Container from 'react-bootstrap/esm/Container.js';
-import Landing from "./components/Landing.js";
+import HomePage from "./components/HomePage.js";
 import Profile from "./components/Profile.js";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
@@ -13,14 +13,14 @@ function App() {
   return (
       <Router>
         <div className="App">
-          <Landing />
           <Container>
+            <HomePage />
             <Routes>
-              <Route path="/register" component={Register} />
-              <Route path="/login" component={Login} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/driverLog" component={DriverLog} />
-              <Route path="/inventory" component={Inventory} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/register" element={<Register/>} />
+              <Route path="/profile" element={<Profile/>} />
+              <Route path="/driverLog" element={<DriverLog/>} />
+              <Route path="/inventory" element={<Inventory/>} />
             </Routes>
           </Container>
         </div>

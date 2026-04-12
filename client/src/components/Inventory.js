@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Container from 'react-bootstrap/esm/Container.js';
-import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 class Inventory extends Component {
@@ -8,10 +7,10 @@ class Inventory extends Component {
     constructor() {
     super();
     this.state = {
-        id: "",
-        name: "",
-        quantity: "",
-        cost: "",
+        ID: "",
+        NAME: "",
+        QUANTITY: "",
+        COST: "",
         errors: {}
     };
 
@@ -26,16 +25,16 @@ class Inventory extends Component {
     e.preventDefault();
 
     const item = {
-        id: this.state.id,
-        name: this.state.name,
-        quantity: this.state.quantity,
-        cost: this.state.cost
+        ID: this.state.ID,
+        NAME: this.state.NAME,
+        QUANTITY: this.state.QUANTITY,
+        COST: this.state.COST
     };
   }
 
-  render() 
-  {
-    return (
+render()
+{
+return (
   <Container>
         <div className="modal-dialog" id="login_modal">
             <div className="modal-content">
@@ -46,19 +45,19 @@ class Inventory extends Component {
                 <form className="content-containers container text-center mt-5" onSubmit={this.onSubmit}>
                     <div className="input-group" id="login-un">
                         <label id="un_label" htmlFor="item_id"><i id="id_icon" className="fa-solid fa-fingerprint"></i></label>
-                        <input value={this.state.id} onChange={this.onChange} id="item_id" className="form-control" placeholder="ID-0000" name="driverID" type="text" required/>
+                        <input value={this.state.ID} onChange={this.onChange} id="item_id" className="form-control" placeholder="ID-0000" name="driverID" type="text" required/>
                     </div>
                     <div className="input-group" id="login-pw">
                         <label id="pw_label" htmlFor="item_name"><i id="tag_icon" className="fa-solid fa-tag"></i></label>
-                        <input value={this.state.name} onChange={this.onChange} id="item_name" className="form-control" placeholder="0" name="total_filled" type="text" required/>
+                        <input value={this.state.NAME} onChange={this.onChange} id="item_name" className="form-control" placeholder="0" name="total_filled" type="text" required/>
                     </div>
                     <div className="input-group" id="login-pw">
                         <label id="pw_label" htmlFor="quantity"><i id="quantity_icon" className="fa-solid fa-list-ol"></i></label>
-                        <input value={this.state.quantity} onChange={this.onChange} id="quantity" className="form-control" placeholder="$0.00" name="total_cost" type="text" required/>
+                        <input value={this.state.QUANTITY} onChange={this.onChange} id="quantity" className="form-control" placeholder="$0.00" name="total_cost" type="text" required/>
                     </div>
                     <div className="input-group" id="login-pw">
                         <label id="pw_label" htmlFor="item_cost"><i id="costs_icon" className="fa-solid fa-coins"></i></label>
-                        <input value={this.state.cost} onChange={this.onChange} id="item_cost" className="form-control" placeholder="$0.00" name="total_cost" type="text" required/>
+                        <input value={this.state.COST} onChange={this.onChange} id="item_cost" className="form-control" placeholder="$0.00" name="total_cost" type="text" required/>
                     </div>
                     <div className="modal-footer">
                         <button type="submit" id="pw_login" className="btn btn-primary" style={{cursor: 'pointer'}}>

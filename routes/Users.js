@@ -23,7 +23,6 @@ Users.post("/register", (req, res) => {
       username: req.body.username
     }
   })
-    //TODO bcrypt
     .then(user => {
       if (!user) {
         bcrypt.hash(req.body.password, 8, (err, hash) => {
