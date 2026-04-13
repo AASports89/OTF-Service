@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/esm/Container.js';
 // import { driverLog } from "./UserFunctions.js";
 import "../App.css";
@@ -41,12 +42,12 @@ render()
 {
 return (
   <Container>
-    <div className="modal-dialog" id="login_modal">
+    <div className="modal-dialog" id="log-modal">
         <div className="modal-content">
             <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel"><i>Driver Logs</i></h5>
+                <h5 className="modal-title" id="exampleModalLabel"><i>Service Log</i></h5>
             </div>
-            <div className="modal-body" id="login-modal">
+            <div className="modal-body">
             <form className="content-containers container text-center mt-5">
                 <div className="input-group" id="login-un">
                     <label id="un_label" htmlFor="driverID"><i id="driver_icon" className="fa-regular fa-id-card"></i></label>
@@ -73,9 +74,9 @@ return (
                     <button type="submit" id="pw_login" className="btn btn-primary" style={{cursor: 'pointer'}}>
                         Submit
                     </button>
-                    <button id="close-btn" className="btn btn-secondary" type="button" data-bs-dismiss="modal">
-                        Close
-                    </button>
+                  <Link id="close-btn" className="btn btn-secondary" type="button" to={'/'}>
+                    Close
+                  </Link>
                 </div>
             </form>
         </div>

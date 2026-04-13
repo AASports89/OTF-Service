@@ -2,8 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
-  "proxy": "http://localhost:3001",
   "homepage": "https://aasports89.github.io/OTF-Service/",
   "dependencies": {
     "axios": "^0.18.0",

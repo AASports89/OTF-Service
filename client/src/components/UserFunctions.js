@@ -2,7 +2,7 @@ import axios from "axios";
 
 const register = newUser => {
   return axios
-    .post("http://192.168.1.8:3000/users/register", {
+    .post("http://localhost:3001/users/register", {
       USERNAME: newUser.USERNAME,
       PASSWORD: newUser.PASSWORD,
       FIRST_NAME: newUser.FIRST_NAME,
@@ -15,7 +15,7 @@ const register = newUser => {
 
 const login = user => {
   return axios
-    .post("http://192.168.1.8:3000/users/login", {
+    .post("http://localhost:3001/users/login", {
       USERNAME: user.USERNAME,
       PASSWORD: user.PASSWORD
     })
@@ -35,7 +35,7 @@ const logOut = user => {
 
 const driveLog = driverLogs => {
   return axios
-    .post("http://192.168.1.8:3000/auth/driverLogs", {
+    .post("http://localhost:3001/auth/driverLogs", {
       DRIVER_ID: driverLogs.DRIVER_ID,
       FUEL_TYPE: driverLogs.FUEL_TYPE,
       TOTAL_FILLED: driverLogs.TOTAL_FILLED,
@@ -46,17 +46,17 @@ const driveLog = driverLogs => {
     });
 };
 
-const itemInventory = item => {
-  return axios
-    .post("http://192.168.1.8:3000/auth/inventories", {
-      ID: item.ID,
-      NAME: item.NAME,
-      QUANTITY: item.QUANTITY,
-      COST: item.COST
-    })
-    .catch(err => {
-      console.log(err);
-    });
-};
+// const itemInventory = item => {
+//   return axios
+//     .post("hhttp://localhost:3001/auth/inventories", {
+//       ID: item.ID,
+//       NAME: item.NAME,
+//       QUANTITY: item.QUANTITY,
+//       COST: item.COST
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// };
 
-export {register, login, logOut, driveLog, itemInventory};
+export {register, login, logOut, driveLog};

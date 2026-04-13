@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import Container from 'react-bootstrap/esm/Container.js';
 import favicon from '../images/favicon.svg';
 import nav_logo from '../images/nav_logo.svg';
+import { loggedIn } from "./Auth.js";
 
 const year = new Date().getFullYear();
 
@@ -12,19 +13,26 @@ class HomePage extends Component {
 render()
 {
 
-const logout = () => {
-      axios.get('http://192.168.1.8:3000/auth/logout', {
-        headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
-            method: 'GET',
-        }).then((response) => {
-            console.log(response);
-            console.log(response.data.session);
-            return response;
-        });
-        localStorage.clear();
-        window.location.reload();
-    }
+  // const logout = () => {
+  //   // Clear user token and profile data from localStorage
+  //   localStorage.removeItem('id_token');
+  //   // this will reload the page and reset the state of the application
+  //   window.location.assign('/');
+  // };
+
+// const logout = () => {
+//       axios.get('http://localhost:3001/auth/logout', {
+//         headers: { 'Content-Type': 'application/json' },
+//             withCredentials: true,
+//             method: 'GET',
+//         }).then((response) => {
+//             console.log(response);
+//             console.log(response.data.session);
+//             return response;
+//         });
+//         localStorage.clear();
+//         window.location.reload();
+//     }
 
 //   const login = user => {
 //   return axios
@@ -69,7 +77,7 @@ return (
             <i className="fa-solid fa-user-plus fa-lg"></i> Register
           </Link>
         <>
-          {localStorage.getItem("userToken") ? (
+          {loggedIn ? (
           <></>
           ):(
         <>
@@ -89,7 +97,7 @@ return (
         </header>
         <footer id='footer' className="fixed-bottom navbar navbar-expand-lg navbar-light bg-light justify-content-center">
           <ul class="nav justify-content-center">
-            <a id="icon-link" className="nav item justify-content-center" href="https://aasports89.github.io/Bloomington-Mini-Mart/">
+            <a id="icon-link" className="nav item justify-content-center" href="https://aasports89.github.io/OTF-Service/">
               <img id="royal-icon" className='img-card-overlay' src={favicon} alt="OTF Service™"></img>
             </a>
              <p className="nav item justify-content-center" id="footer-title"><b id="footer-bold">© On The Fly Service™ - {year}. All Rights Reserved.</b></p>

@@ -48,7 +48,8 @@
   border-radius: 0.5em;
   background: transparent;
   cursor: pointer;
-  width:25%;
+  width: 25%;
+  margin-right: 5%;
 }
 
 #home-btn {
@@ -172,7 +173,7 @@
 }
 
 #name_icon {
-  color: rgb(145, 226, 255);
+  color: black;
   font-size: 20pt;
 }
 
@@ -260,7 +261,21 @@ transition: all 0.3s ease-in-out;
 #login-modal {
   border: solid 0.5px black;
   border-radius: 1em;
-  margin-bottom: 2%;
+  margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+#register-modal {
+  border: solid 0.5px black;
+  border-radius: 1em;
+  margin-bottom: 10%;
+  margin-top: 5%;
+}
+
+#log-modal {
+  border: solid 0.5px black;
+  border-radius: 1em;
+  margin-bottom: 10%;
   margin-top: 5%;
 }
 
@@ -442,11 +457,11 @@ transition: all 0.3s ease-in-out;
 }
 
 #icon-link {
-  margin: 0;
+  margin-bottom: 2%;
 }
 
 #royal-icon {
-  width: 10%;
+  width: 20%;
 }
 
 #navbar {
@@ -459,7 +474,6 @@ transition: all 0.3s ease-in-out;
 
 #btn-home {
   background: transparent;
-  margin-right: 2%;
 }
 
 #nav-home {

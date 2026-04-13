@@ -20,7 +20,7 @@ function App() {
               <Route path="/register" element={<Register/>} />
               <Route path="/profile" element={<Profile/>} />
               <Route path="/driverLog" element={<DriverLog/>} />
-              <Route path="/inventory" element={<Inventory/>} />
+              {/* <Route path="/inventory" element={<Inventory/>} /> */}
             </Routes>
           </Container>
         </div>
