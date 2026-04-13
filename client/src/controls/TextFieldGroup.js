@@ -1,50 +1,97 @@
-// import React from "react";
-// import classnames from "classnames";
-// import PropTypes from "prop-types";
+// //DEPENDECY & IMPORT//
+//   const router = require("express").Router();
+//   const { User } = require("../../models");
+// //   const withAuthAdmin = require("../../utils/auth");
 
-// const TextFieldGroup = ({
-//   name,
-//   placeholder,
-//   value,
-//   label,
-//   error,
-//   info,
-//   type,
-//   onChange,
-//   disabled
-// }) => {
-//   return (
-//     <div className="form-group">
-//       <input
-//         type={type}
-//         className={classnames("form-control form-control-lg", {
-//           "is-invalid": error
-//         })}
-//         placeholder={placeholder}
-//         name={name}
-//         value={value}
-//         onChange={onChange}
-//         disabled={disabled}
-//       />
-//       {info && <small className="form-text text-muted">{info}</small>}
-//       {error && <div className="invalid-feedback">{error}</div>}
-//     </div>
-//   );
-// };
+// //CREATE NEW ACCOUNT//
+//     router.post("/", async (req, res) => {
+//         try {
+//             const dbUserData = await User.create({
+//                 username: req.body.username,
+//                 email: req.body.email,
+//                 password: req.body.password,
+//                 isAdmin: req.body.is_admin,
+//         });
+//             req.session.save(() => {
+//             req.session.loggedIn = true;
+//             req.session.loggedInUserData = dbUserData;
+//             return res.status(200).json(dbUserData);
+//         });
+//             } catch (err) {
+//                 console.log(err);
+//                     return res.status(500).json(err);
+//         }
+//     });
 
-// TextFieldGroup.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   placeholder: PropTypes.string,
-//   value: PropTypes.string.isRequired,
-//   info: PropTypes.string,
-//   error: PropTypes.string,
-//   type: PropTypes.string.isRequired,
-//   onChange: PropTypes.func.isRequired,
-//   disabled: PropTypes.string
-// };
+// //DELETE USER ACCOUNT//
+// //     router.get("/:id", withAuthAdmin, async (req, res) => {
+// //     try {
+// //         const dbUserData = await User.create({
+// //             username: req.body.username,
+// //             email: req.body.email,
+// //             password: req.body.password,
+// //             isAdmin: req.body.is_admin,
+// //     });
+// //         req.session.save(() => {
+// //         req.session.loggedIn = true;
+// //         req.session.loggedInUserData = dbUserData;
+// //         return res.status(200).json(dbUserData);
+// //     });
+// //         } catch (err) {
+// //             console.log(err);
+// //                 return res.status(500).json(err);
+// //     }
+// // });
 
-// TextFieldGroup.defaultProps = {
-//   type: "text"
-// };
+// //LOGIN//
+//     router.post("/login", async (req, res) => {
+//         try {
+//             const dbUserData = await User.findOne({
+//                 where: {
+//                 username: req.body.username,
+//                 email: req.body.email,
+//             }, 
+//         });
 
-// export default TextFieldGroup;
+//         if (!dbUserData) {
+//             res.status(400).json({
+//                 message: "Error❗⛔ Invalid login credentials❗⛔",
+//             });
+//             return;
+//         }
+// //PASSWORD CHECK//
+//     const validPassword = await dbUserData.checkPassword(req.body.password);
+//         if (!validPassword) {
+//             res.status(400).json({
+//                 message: "Error❗⛔ Invalid login credentials❗⛔",
+//         });
+//             return;
+//         }
+// //SAVE DATA SESS.//
+//     req.session.save(() => {
+//     req.session.loggedIn = true;
+//     req.session.loggedInUserData = dbUserData;
+//         console.log("💾", req.session.cookie);
+//             res.status(200).json({
+//                 user: dbUserData,
+//                 message: `Success✅ Logged in as ${User} ✅`,
+//             });
+//     });
+//         } catch (err) {
+//             console.log(err);
+//             res.status(500).json(err);
+//         }
+//     });
+
+// //LOGOUT//
+//     router.post("/logout", (req, res) => {
+//         if (req.session.loggedIn) {
+//             req.session.destroy(() => {
+//                 res.status(204).end();
+//         });
+//         } else {
+//             res.status(404).end();
+//         }
+//     });
+
+//     module.exports = router;

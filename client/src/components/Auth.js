@@ -10,7 +10,7 @@ import decode from 'jwt-decode';
   // check if user's logged in
   const loggedIn = () => {
     // Checks if there is a saved token and it's still valid
-    const token = this.getToken();
+    const token = localStorage.getItem('id_token')
     return !!token && !this.isTokenExpired(token); // handwaiving here
   }
 

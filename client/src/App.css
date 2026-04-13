@@ -262,7 +262,16 @@ transition: all 0.3s ease-in-out;
   border: solid 0.5px black;
   border-radius: 1em;
   margin-top: 5%;
-    margin-bottom: 10%;
+  margin-bottom: 10%;
+}
+
+#table-dash {
+  width: 100%;
+}
+
+#dash-title {
+  font-size: 20pt;
+  font-weight: bold;
 }
 
 #register-modal {

@@ -13,12 +13,12 @@ class HomePage extends Component {
 render()
 {
 
-  // const logout = () => {
-  //   // Clear user token and profile data from localStorage
-  //   localStorage.removeItem('id_token');
-  //   // this will reload the page and reset the state of the application
-  //   window.location.assign('/');
-  // };
+  const logout = () => {
+    // Clear user token and profile data from localStorage
+    localStorage.removeItem('id_token');
+    // this will reload the page and reset the state of the application
+    window.location.assign('/');
+  };
 
 // const logout = () => {
 //       axios.get('http://localhost:3001/auth/logout', {
@@ -77,7 +77,7 @@ return (
             <i className="fa-solid fa-user-plus fa-lg"></i> Register
           </Link>
         <>
-          {loggedIn ? (
+          {loggedIn() ? (
           <></>
           ):(
         <>
