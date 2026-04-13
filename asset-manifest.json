@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/OTF-Service/static/css/main.d60f1661.css",
-    "main.js": "/OTF-Service/static/js/main.2f85c2e6.js",
-    "static/media/favicon.svg": "/OTF-Service/static/media/favicon.62b07526ec4844f1a822c43176af73c7.svg",
-    "static/media/nav_logo.svg": "/OTF-Service/static/media/nav_logo.62b07526ec4844f1a822c43176af73c7.svg",
+    "main.css": "/OTF-Service/static/css/main.a4f55216.css",
+    "main.js": "/OTF-Service/static/js/main.62638935.js",
+    "static/media/favicon.svg": "/OTF-Service/static/media/favicon.9f78dbf9366c8201a17770d15ea099f6.svg",
+    "static/media/nav_logo.svg": "/OTF-Service/static/media/nav_logo.9f78dbf9366c8201a17770d15ea099f6.svg",
     "static/media/shell_bg.svg": "/OTF-Service/static/media/shell_bg.e7959e5d96203b075a9e.svg",
     "index.html": "/OTF-Service/index.html",
-    "main.d60f1661.css.map": "/OTF-Service/static/css/main.d60f1661.css.map",
-    "main.2f85c2e6.js.map": "/OTF-Service/static/js/main.2f85c2e6.js.map"
+    "main.a4f55216.css.map": "/OTF-Service/static/css/main.a4f55216.css.map",
+    "main.62638935.js.map": "/OTF-Service/static/js/main.62638935.js.map"
   },
   "entrypoints": [
-    "static/css/main.d60f1661.css",
-    "static/js/main.2f85c2e6.js"
+    "static/css/main.a4f55216.css",
+    "static/js/main.62638935.js"
   ]
 }
