@@ -150,6 +150,16 @@
   border: none;
 }
 
+#login-link {
+  text-decoration: none;
+  margin-top: 5%;
+}
+
+#home-link {
+  text-decoration: none;
+  margin-top: 5%;
+}
+
 #close-btn {
   border: solid ;
   background: transparent;
@@ -256,6 +266,14 @@ transition: all 0.3s ease-in-out;
   width: 200%;
   text-align: center;
   font-weight: bold;
+}
+
+#scheduled_time {
+  cursor: pointer;
+}
+
+#service-log-title {
+  margin-bottom: -5%;
 }
 
 #login-modal {
@@ -434,35 +452,25 @@ transition: all 0.3s ease-in-out;
 }
 
 #yelp {
-  color: #D22222;
-  font-size: 200%;
-}
-
-#twitter {
-  font-size: 200%;
-}
-
-#twitter:hover {
-  transition: all 0.3s ease-in-out;
-  color: rgba(128, 128, 128, 0.506);
-  font-size: 175%;
-}
-
-#insta {
-  color:  rgb(94, 79, 125);
-  font-size: 200%;
-}
-
-#insta:hover {
-  color: rgba(128, 128, 128, 0.506);
-  transition: all 0.3s ease-in-out;
-  font-size: 175%;
+  text-decoration: none;
+  color: #d32323;
+  text-align: left;
 }
 
 #yelp:hover {
   transition: all 0.3s ease-in-out;
   color: rgba(128, 128, 128, 0.506);
-  font-size: 175%;
+}
+
+#ig {
+  text-decoration: none;
+  color: linear-gradient(rgb(131, 58, 180) 0%, rgb(191, 52, 131) 15%, rgb(225, 48, 108) 30%, rgb(247, 119, 55) 45%, rgb(252, 175, 69) 60%, rgb(64, 93, 230) 20%);
+  text-align: right;
+}
+
+#ig:hover {
+  transition: all 0.3s ease-in-out;
+  color: rgba(128, 128, 128, 0.506);
 }
 
 #icon-link {
@@ -494,7 +502,27 @@ transition: all 0.3s ease-in-out;
 }
 
 #login-un {
-  margin-bottom: 5%;
+  margin-bottom: 2.5%;
+}
+
+#vehicle {
+  margin-bottom: 2.5%;
+}
+
+#appointment {
+  margin-bottom: 2.5%;
+}
+
+#client {
+  margin-bottom: 2.5%;
+}
+
+#billed {
+  margin-bottom: 2.5%;
+}
+
+#notes {
+  margin-bottom: 2.5%;
 }
 
 #pw_login {
@@ -536,68 +564,9 @@ transition: all 0.3s ease-in-out;
   padding: 0;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-
-
-/* Style the accordion panel. Note: hidden by default */
 .panel {
   background-color: white;
   display: none;
   overflow: hidden;
 }
 
-@media only screen and (max-width: 768px) {
-  
-  #home {
-    font-size: 50%;
-    margin-left: 10%;
-  }
-
-  #login {
-    font-size: 50%;
-    margin-left: 10%;
-  }
-
-  #signup {
-    font-size: 50%;
-    margin-left: 10%;
-  }
-
-  #logo {
-    width: -10%;
-    float:right
-  }
-
-  #yelp {
-    font-size: 100%;
-  }
-
-  #twitter {
-    font-size: 100%;
-  }
-
-  #insta {
-    font-size: 100%;
-  }
-
-  #footer {
-    height: max-content;
-  }
-
-  #embed-1 {
-    width: 100%;
-  }
-
-  #embed {
-    height: 300px;
-    margin-bottom: 40%;
-  }
-
-  .accordion {
-    background-color: transparent;
-  }
-
-  #footer-bold{
-    font-size: 70%;
-  }
-}
