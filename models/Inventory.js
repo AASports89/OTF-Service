@@ -1,7 +1,9 @@
 // import db from '../database/db.js';
-// import Sequelize from 'sequelize';
+// import { Model, Sequelize } from 'sequelize';
 
-// const Inventory = Sequelize.Model(
+// class Inventory extends Model{};
+
+// Inventory.init(
 //   {
 //     id: {
 //       type: Sequelize.DataTypes.INTEGER,

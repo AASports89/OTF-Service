@@ -1,56 +1,67 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from "axios";
-import { success } from "concurrently/src/defaults";
+import axios from 'axios';
+import { toast } from 'sonner';
 
-class Login extends Component {
+const load = <i className="fa-solid fa-user-lock fa-bounce fa-lg" Style={"color: rgb(26, 111, 217);"}></i>;
 
-render()
-{
+function Login() {
 
-const username = document.querySelector("#username");
-const password = document.querySelector("#password");
+  const [USERNAME, setUsername] = useState("");
+  const [PASSWORD, setPassword] = useState(""); 
 
-const loginFormHandler = async (event) => {
-  event.preventDefault();
-  if (username && password) {
-    const response = axios.post("/login", {
-      method: "POST",
-      body: JSON.stringify({username, password}),
-      headers: { "Content-Type": "application/json" },
-  });
-  if ((await response).status === 200) 
-    {
-      document.location.replace('/profile');
-    } else {
-      alert("⛔| Invalid Username / Password " + response.status +  ": " +  response.statusText + " |⛔");
+  useEffect(() => {load});
+
+  const handleLogin = async (e) => {
+    e.preventDefault(); 
+    try {
+      if (!USERNAME || USERNAME === "" || !PASSWORD || PASSWORD === "") 
+      {
+        toast.warning("⛔❗| All Fields Are Required |❗⛔");
+        return; 
+      }
+      const res = await axios.post("http://localhost:3000/login", {
+        USERNAME: USERNAME,
+        PASSWORD: PASSWORD
+      });
+      
+      if (res.status === 200) 
+      {
+        setUsername(''); 
+        setPassword(''); 
+        toast.success("...✅| User Successfully Logged In |✅...");
+      }
+
+      const token = await res.data.token;
+      localStorage.setItem("🪙", token); 
+
+    } catch (error) {
+      console.error("⛔❗| Login Error |❗⛔", error);
+      toast.error("⛔❗| Invalid User / Login Credentials |❗⛔", error);
     }
-  }        
-};
+  };
 
-document.querySelector(".btn btn-primary");
-
-return(
+  return(
         <div className="modal-dialog" id="login-modal">
 			      <div className="modal-content">
 				      <div className="modal-header">
 					      <h5 className="modal-title" id="exampleModalLabel"><i className="fa-solid fa-user"></i> <i>Admin / User Login</i></h5>
 				      </div>
 				    <div className="modal-body">
-					    <form className="content-containers container text-center mt-5" id="login" onSubmit={loginFormHandler}>
+					    <form className="content-containers container text-center mt-5" id="login" onSubmit={handleLogin}>
                 <div className="input-group" id="login-un">
                   <label id="un_label" htmlFor="username"><i id="un_icon" className="fas fa-user"></i></label>
-								  <input id="username" className="form-control" value={username} placeholder="Username" name="username" type="text" required/>
+								  <input id="username" className="form-control username" value={USERNAME} onChange={(e) => setUsername(e.target.value)} placeholder="Username" name="username" type="text" required/>
 						    </div>
                 <div className="input-group" id="login-pw">
                   <label id="pw_label" htmlFor="password"><i id="pw_icon" className="fas fa-lock"></i></label>
-								  <input id="password" className="form-control" value={password} placeholder="******" name="password" type="password" required/>
+								  <input id="password" className="form-control password" value={PASSWORD} onChange={(e) => setPassword(e.target.value)} placeholder="******" name="password" type="password" required/>
 						    </div>
 						    <div className="modal-footer">
-								<button type="submit" id="pw_login" className="btn btn-primary" style={{cursor: 'pointer'}}>
+								<button type="submit" id="pw_login" className="btn btn-primary login-btn" Style={{cursor: 'pointer'}}>
 									  Login
 								</button>
-                <Link id="close-btn" className="btn btn-secondary" type="button" to={'/'}>
+                <Link to={'/'} id="close-btn" className="btn btn-secondary" type="button">
                     Close
                 </Link>
                 </div>
@@ -58,6 +69,6 @@ return(
             </div>
           </div>
       </div>
-)}};
+)};
 
 export default Login;

@@ -1,12 +1,21 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from 'react';
+import decode from 'jwt-decode';
+import axios from 'axios';
+import { Token } from 'graphql';
 
-const user_id = document.querySelector(".logged-in-user-id").innerHTML;
-const username = document.querySelector(".logged-in-user-username").innerHTML;
+const secret = 'mysecretssshhhhhhh';
+const expiration = '2h';
 
-class Profile extends Component {
-render()
-{
+  const  getToken = () => {
+    return localStorage.getItem(Token);
+  };
+
+  const getProfile = () => {
+    return decode(getToken());
+  };
+
+const Profile =() => {
+
 //     const submitServiceLogHandler = async (event) => {
 //     event.preventDefault();
 
@@ -89,7 +98,7 @@ return (
       <div className="container">
         <div className="jumbotron mt-5">
           <div className="col-sm-8 mx-auto">
-            <h1 id="dash-title" className="text-center"> {username}'s Dashboard</h1>
+            <h1 id="dash-title" className="text-center"> {getProfile()}'s Dashboard</h1>
             <table id="table-dash">
                 <thead>
                     <tr id="dash-table">
@@ -106,10 +115,10 @@ return (
                             {this.$`scheduled_time`}
                         </td>
                         <td id="editt">
-                            <a className="service-log" id="service-log" href={"/edit/" + this.$`id`}><i className="fa-solid fa-file-pen" Style={"color: rgb(236, 113, 22);"}></i></a>
+                            <a className="service-log" id="service-log" href={"/edit/" + $`id`}><i className="fa-solid fa-file-pen" Style={"color: rgb(236, 113, 22);"}></i></a>
                         </td>
                         <td id="delete">
-                            <a className="delete-serviceLog" id="delete-serviceLog" data-id={this.$`id`}><i className="fa-solid fa-trash-can" Style={"color: rgb(194, 11, 11);"}></i></a>
+                            <a className="delete-serviceLog" id="delete-serviceLog" data-id={$`id`}><i className="fa-solid fa-trash-can" Style={"color: rgb(194, 11, 11);"}></i></a>
                         </td>
                     </tr>
                 </tbody>
@@ -118,6 +127,6 @@ return (
         </div>
       </div>
     </header>
-)}};
+)};
 
 export default Profile;
