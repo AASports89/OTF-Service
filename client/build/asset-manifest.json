@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/OTF-Service/static/css/main.bfe3d850.css",
+    "main.js": "/OTF-Service/static/js/main.b7258739.js",
+    "static/media/favicon.svg": "/OTF-Service/static/media/favicon.9f78dbf9366c8201a17770d15ea099f6.svg",
+    "static/media/nav_logo.svg": "/OTF-Service/static/media/nav_logo.9f78dbf9366c8201a17770d15ea099f6.svg",
+    "static/media/shell_bg.svg": "/OTF-Service/static/media/shell_bg.e7959e5d96203b075a9e.svg",
+    "index.html": "/OTF-Service/index.html",
+    "main.bfe3d850.css.map": "/OTF-Service/static/css/main.bfe3d850.css.map",
+    "main.b7258739.js.map": "/OTF-Service/static/js/main.b7258739.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bfe3d850.css",
+    "static/js/main.b7258739.js"
+  ]
+}
